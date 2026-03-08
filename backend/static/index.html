@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcription Processor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube Transcription Processor</h1>
+            <p class="subtitle">Paste YouTube links below to extract transcripts and generate AI-powered summaries</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <label for="urls">YouTube URLs <span class="hint">(one per line, max 15)</span></label>
+                <textarea id="urls" rows="6" placeholder="https://www.youtube.com/watch?v=...&#10;https://youtu.be/...&#10;https://www.youtube.com/watch?v=..."></textarea>
+                <div class="input-actions">
+                    <span id="url-count" class="url-count">0 / 15 links</span>
+                    <button id="btn-process" onclick="startProcessing()">Process Videos</button>
+                </div>
+            </section>
+
+            <section id="results-section" class="results-section" style="display:none;">
+                <h2>Processing Results</h2>
+                <div id="video-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
