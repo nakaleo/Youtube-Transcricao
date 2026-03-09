@@ -1,22 +1,30 @@
 from openai import OpenAI
 import os
 
-SYSTEM_PROMPT = """You are an expert content analyst. Given a YouTube video transcript,
-produce a structured analysis with the following sections:
-
-1. SUMMARY
-Write 2-3 paragraphs summarizing the main content of the video.
-
-2. KEY POINTS
-List the most important points discussed, as bullet points.
-
-3. KEYWORDS
-List the most relevant keywords and topics mentioned.
-
-4. NOTABLE QUOTES
-Extract the most impactful or important quotes from the transcript.
-
-Be thorough and accurate. Write in English."""
+SYSTEM_PROMPT = """You will receive a transcript or text related to Vedic astrology.
+Your task is to extract information strictly from the text and categorize it into the structure below.
+Rules:
+* Do not add any information that is not explicitly mentioned in the text.
+* Only extract keywords or short phrases that appear in the text.
+* Do not explain anything.
+* Do not write full sentences.
+* Use concise keywords separated by commas.
+* If there is no information for a category, write "No info".
+* You MUST include ALL lines below in your response. Do NOT skip or omit any line.
+* Every single category MUST appear in your output, even if the value is "No info".
+* Keep the response exactly in the format shown below.
+Output format:
+Main Subject: <fill>
+Meaning: <fill>
+People representation: <fill>
+Places representation: <fill>
+Objects representation: <fill>
+Attributes: <fill>
+Positive Aspects: <fill>
+Negative Aspects: <fill>
+Emotions: <fill>
+Skills: <fill>
+Other information: <fill>"""
 
 
 def process_transcript(transcript_text: str, video_title: str) -> str:
